@@ -1,6 +1,6 @@
 // The MIT License
 // 
-// Copyright (c) 2012 Gwendal Roué
+// Copyright (c) 2013 Gwendal Roué
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -27,10 +27,9 @@
  *
  * @see GRMustacheExpression
  */
-@interface GRMustacheScopedExpression : NSObject<GRMustacheExpression> {
+@interface GRMustacheScopedExpression : GRMustacheExpression {
 @private
-    GRMustacheToken *_debuggingToken;
-    id<GRMustacheExpression> _baseExpression;
+    GRMustacheExpression *_baseExpression;
     NSString *_scopeIdentifier;
 }
 
@@ -47,5 +46,5 @@
  *
  * @return A GRMustacheScopedExpression.
  */
-+ (id)expressionWithBaseExpression:(id<GRMustacheExpression>)baseExpression scopeIdentifier:(NSString *)scopeIdentifier;
++ (id)expressionWithBaseExpression:(GRMustacheExpression *)baseExpression scopeIdentifier:(NSString *)scopeIdentifier GRMUSTACHE_API_INTERNAL;
 @end

@@ -1,6 +1,6 @@
 // The MIT License
 // 
-// Copyright (c) 2012 Gwendal Roué
+// Copyright (c) 2013 Gwendal Roué
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -30,23 +30,15 @@
     /**
      * Our template wants to render floats in various formats: raw, or formatted
      * as percentage, or formatted as decimal.
-     *
-     * This is typically a job for filters: we'll define the `percent` and
-     * `decimal` filters.
-     *
-     * For now, we just have our template use them. The initial {{%FILTERS}}
-     * pragma tag tells GRMustache to trigger support for filters, which are an
-     * extension to the Mustache specification.
      */
-     
-    NSString *templateString = @"{{%FILTERS}}"
-                               @"raw: {{value}}\n"
-                               @"percent: {{percent(value)}}\n"
-                               @"decimal: {{decimal(value)}}";
+
+    NSString *templateString = @"raw: {{ value }}\n"
+                               @"percent: {{ percent(value) }}\n"
+                               @"decimal: {{ decimal(value) }}";
     GRMustacheTemplate *template = [GRMustacheTemplate templateFromString:templateString error:NULL];
     
     /**
-     * Now we have to define those filters.
+     * Let's define the `percent` and `decimal` filters:
      *
      * Filters have to be objects that conform to the GRMustacheFilter protocol.
      * The easiest way to build one is to use the
@@ -55,16 +47,11 @@
      * The formatting itself is done by our friend NSNumberFormatter.
      */
     
-    // Build our formatters
-    
     NSNumberFormatter *percentNumberFormatter = [[NSNumberFormatter alloc] init];
     percentNumberFormatter.numberStyle = kCFNumberFormatterPercentStyle;
 
     NSNumberFormatter *decimalNumberFormatter = [[NSNumberFormatter alloc] init];
     decimalNumberFormatter.numberStyle = kCFNumberFormatterDecimalStyle;
-    
-    
-    // Build our filters
     
     id percentFilter = [GRMustacheFilter filterWithBlock:^id(id value) {
         return [percentNumberFormatter stringFromNumber:value];
@@ -76,31 +63,22 @@
     
     
     /**
-     * GRMustache does not load filters from the rendered data, but from a
-     * specific filters container.
-     *
-     * We'll use a NSDictionary for storing the filters, but you can use any
+     * We use a NSDictionary for storing our data, but you can use any
      * other KVC-compliant container.
      */
     
-    NSDictionary *filters = [NSDictionary dictionaryWithObjectsAndKeys:
-                             percentFilter, @"percent",
-                             decimalFilter, @"decimal",
-                             nil];
-    
-    
-    /**
-     * Now we need a float to be rendered as `value` in our template:
-     */
-    
-    NSDictionary *data = [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:0.5] forKey:@"value"];
+    id data = @{
+        @"percent": percentFilter,
+        @"decimal": decimalFilter,
+        @"value": @(0.5),
+    };
     
     
     /**
      * Render.
      */
     
-    return [template renderObject:data withFilters:filters];
+    return [template renderObject:data error:NULL];
 }
 
 @end

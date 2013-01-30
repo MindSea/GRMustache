@@ -3,49 +3,83 @@
 GRMustache introduction
 =======================
 
-Make sure you get familiar with the Mustache syntax and features first: http://mustache.github.com/mustache.5.html.
-
 Features
 --------
 
 ### Core Mustache
 
-- **variables**, as `{{name}}` and `{{{name}}}` (HTML-escaped or not)
-- **sections** (boolean, loop, lambda, inverted), as `{{#name}}...{{/name}}` and `{{^name}}...{{/name}}`
-- **partial templates inclusion**, including recursive partials, as `{{> partial}}`
-- **comments**, as `{{! comment }}`
-- "**set delimiter**" tags, as `{{=<% %>=}}`
+Make sure you get familiar with the Mustache syntax and features first: http://mustache.github.com/mustache.5.html.
+
+- **variable tags**, as `{{name}}`, `{{{name}}}` and `{{&name}}` (HTML-escaped or not)
+- **section tags** (boolean, loop, lambda, inverted), as `{{#name}}...{{/name}}` and `{{^name}}...{{/name}}`
+- **partial tags**, as `{{> partial}}`
+- **comment tag**, as `{{! comment }}`
+- **"set delimiter tags"**, as `{{=<% %>=}}`
+
 
 ### Overlooked Mustache
 
 Those features are not documented in [mustache.5.html](http://mustache.github.com/mustache.5.html), despite their inclusion in the [Mustache specification](https://github.com/mustache/spec):
 
-- **key paths**, as `{{ person.pet.name }}`
-- "**implicit iterator**", as `{{.}}`, that you may use when rendering each string in an array, for instance.
+- **Key paths**, as `{{ person.name }}`, for direct access to an object's property.
+- **"Implicit iterator"**, aka `{{.}}`, directly renders the current object (useful when looping over strings, for instance).
+- **"Mustache lambdas"**, allow both `{{name}}` and `{{#name}}...{{/name}}` tags to invoke your own rendering code. This is documented in the [Rendering Objects Guide](rendering_objects.md).
 
-### GRMustache extensions
 
-Genuine Mustache falls short on a few topics. GRMustache implements features that are not yet in the specification:
+### Core Engine Extensions
 
-- "**anchored key paths**", as `{{ .name }}`, which prevents the lookup of the `name` key in the context stack built by Mustache sections, and guarantees that the `name` key will be fetched from the very current context.
+Genuine Mustache falls short on a few topics. GRMustache core engine implements syntaxes and features that are not in the specification:
+
+- **Empty closing tags**, as in `{{#name}}...{{/}}`
+
+    You don't have to repeat the opening expression in the closing tag.
+
+- **"Else"**, as in `{{#name}}...{{^name}}...{{/name}}`
     
-    If you are not familiar with the "context stack" and the key lookup mechanism, check [Guides/runtime/context_stack.md](runtime/context_stack.md).
+    You don't have to close a regular section if it is immediately followed by its inverted form.
     
-    This extension is backed on the discussions at [mustache/spec#10](https://github.com/mustache/spec/issues/10) and [mustache/spec#52](https://github.com/mustache/spec/issues/52).
-    
-- "**filters**", as `{{ uppercase(name) }}`.
-    
-    This extension is backed on the discussion at [mustache/spec#41](https://github.com/mustache/spec/issues/41)
+    The short form `{{#name}}...{{^}}...{{/}}` is accepted, as well as the "unless" form `{{^name}}...{{#}}...{{/}}`.
 
-### GRMustache tools
+- **"Anchored key paths"**, as `{{ .name }}` which enforces lookup of the `name` key in the immediate context instead of going through the context stack built by Mustache sections.
+    
+    If you are not familiar with the "context stack" and the Mustache key lookup mechanism, check the [Runtime Guide](runtime.md).
 
-- **hooks** and **template debugging**: the library helps you observe a template rendering, in order to catch rendering bugs or to extend the raw Mustache features.
+- **Loops in variable tags**: a simple variable tag `{{items}}` renders a concatenation of the rendering of each individual item. You may think of Ruby on Rails' `<%= render @items %>`: check the [Rendering Objects Guide](rendering_objects.md).
+
+- **"Filters"**, as `{{ uppercase(name) }}`.
+    
+    Filters are documented in the [Filters Guide](filters.md).
+
+- **Support for partial templates in a file system hierarchy**.
+    
+    Use relative `{{> header }}` or absolute paths `{{> /shared/header }}` to your partial templates: see the [Partials Guide](partials.md).
+
+- **"Overridable partials"**, aka "template inheritance", inspired by [hogan.js](http://twitter.github.com/hogan.js/) and [spullara/mustache.java](https://github.com/spullara/mustache.java), allow you to define reusable template layouts.
+    
+    Overridable partials are documented in the [Partials Guide](partials.md).
+
+- **Text templates**.
+
+    The Mustache language focuses on rendering HTML, and safely HTML-escape your data. GRMustache also support text templates, that do not escape anything. Check the [HTML vs. Text Templates Guide](html_vs_text.md).
+
+
+### Flexibility
+
+GRMustache's core engine is extensible. Feel free to hook in:
+
+- [Rendering objects](rendering_objects.md) provide their own custom rendering.
+- [Tag delegates](delegate.md) observe and alter objects rendered by tags.
+- [Filters](filters.md) transform your raw data.
+
+Should you eventually build a library of reusable code snippets, you'll find [Protected Contexts](protected_contexts.md) useful.
 
 
 Getting started
 ---------------
 
-You'll generally gather a template string and a data object that will fill the "holes" in the template.
+### Rendering dictionaries from template strings
+
+You'll generally gather a template and a data object that will fill the "holes" in the template.
 
 The shortest way to render a template is to mix a literal template string and a dictionary:
 
@@ -53,127 +87,48 @@ The shortest way to render a template is to mix a literal template string and a 
 #import "GRMustache.h"
 
 // Render "Hello Arthur!"
-
-NSDictionary *person = @{ @"name": @"Arthur" };
-NSString *templateString = @"Hello {{name}}!";
-NSString *rendering = [GRMustacheTemplate renderObject:person fromString:templateString error:NULL];
+NSString *rendering = [GRMustacheTemplate renderObject:@{ @"name": @"Arthur" }
+                                            fromString:@"Hello {{name}}!"
+                                                 error:NULL];
 ```
 
-However, generally speaking, your templates will be stored as *resources* in your application bundle, and your data will come from your *model objects*. It turns out the following code should be more common:
+`+[GRMustacheTemplate renderObject:fromString:error:]` is documented in the [Templates Guide](templates.md).
+
+### Rendering model objects from template resources
+
+However, your templates will often be stored as *resources* in your application bundle, and your data will come from your *model objects*. It turns out the following code should be more common:
 
 ```objc
 #import "GRMustache.h"
 
-// Render a profile document from the `Profile.mustache` resource
-
+// Render a profile document from the `Profile.mustache` resource:
 Person *person = [Person personWithName:@"Arthur"];
-NSString *profile = [GRMustacheTemplate renderObject:person fromResource:@"Profile" bundle:nil error:NULL];
+NSString *profile = [GRMustacheTemplate renderObject:person
+                                        fromResource:@"Profile"
+                                              bundle:nil
+                                               error:NULL];
 ```
 
-Finally, should you render a single template several times, you will spare CPU cycles by using a single GRMustacheTemplate instance:
+`+[GRMustacheTemplate renderObject:fromResource:bundle:error:]` is documented in the [Templates Guide](templates.md).
+
+### Reusing templates
+
+You will spare CPU cycles by creating and reusing template objects:
 
 ```objc
 #import "GRMustache.h"
 
-// Initialize a template from the `Profile.mustache` resource:
-GRMustacheTemplate *profileTemplate = [GRMustacheTemplate templateFromResource:@"Profile" bundle:nil error:NULL];
+GRMustacheTemplate *template = [GRMustacheTemplate templateFromResource:@"Profile" bundle:nil error:NULL];
 
-// Render two profile documents
-NSString *arthurProfile = [profileTemplate renderObject:arthur];
-NSString *barbieProfile = [profileTemplate renderObject:barbie];
+// Render ad nauseam
+NSString *arthurProfile = [template renderObject:arthur error:NULL];
+NSString *barbaraProfile = [template renderObject:barbara error:NULL];
 ```
 
-If the library makes it handy to render templates stored as resources, you may have other needs. Check [Guides/templates.md](templates.md) for a thorough documentation.
+`+[GRMustacheTemplate templateFromResource:bundle:error:]` and `-[GRMustacheTemplate renderObject:error:]` are documented in the [Templates Guide](templates.md).
 
-Advanced Mustache
------------------
+### Other use cases
 
-### Lambda sections
-
-Mustache "lambda sections" allow you to inject your code and process a portion of a template.
-
-A very simple example could be writing a lambda section that wraps its content:
-
-Template:
-
-    {{#wrapped}}
-      {{name}} is awesome.
-    {{/wrapped}}
-
-Data:
-
-```objc
-NSDictionary *data = @{
-    @"name": @"Arthur",
-    @"wrapped": [GRMustacheHelper helperWithBlock:^(GRMustacheSection *section) {
-                    NSString *rawRendering = [section render];
-                    return [NSString stringWithFormat=@"<b>%@</b>", rawRendering];
-                }]};
-```
-
-Render:
-
-```objc
-// @"<b>Arthur is awesome.</b>"
-NSString *rendering = [template renderObject:data];
-```
-
-Lambda sections are fully documented in [Guides/helpers.md](helpers.md).
-
-### Filters
-
-GRMustache "filters" allow you to inject your code (again), but this time in order to process values.
-
-Let's use one of the built-in filters: `uppercase`. Given the template:
-
-    {{%FILTERS}}{{! Filters are not in the specification yet, so we need to opt in with this special tag. }}
-    Hello {{ uppercase(name) }}
-
-Rendering "Hello ARTHUR" is as simple as:
-
-```objc
-Person *arthur = [Person personWithName:@"Arthur"];
-NSString *rendering = [template renderObject:arthur];
-```
-
-Filters are fully documented in [Guides/filters.md](filters.md).
-
-### Debugging templates and extending GRMustache
-
-You may provide your templates a *delegate*. This object is able to observe and alter a template rendering.
-
-Check [Guides/delegate.md](delegate.md) for documentation and sample code.
-
-More documentation
-------------------
-
-### Mustache syntax
-
-- http://mustache.github.com/mustache.5.html
-
-### Guides
-
-Basic Mustache:
-
-- [templates.md](templates.md): how to load, parse, and render templates from various sources.
-- [runtime.md](runtime.md): how to provide data to templates.
-
-Advanced Mustache:
-
-- [helpers.md](helpers.md): how to process the template canvas before it is rendered with Mustache "lambda sections".
-- [filters.md](filters.md): how to process data before it is rendered with "filters".
-- [delegate.md](delegate.md): how to hook into template rendering.
-
-Sample code:
-
-- [sample_code](../../../tree/master/Guides/sample_code): because some tasks are easier to do with some guidelines.
-
-### Reference
-
-- [Reference](http://groue.github.com/GRMustache/Reference/): the GRMustache reference, automatically generated from inline documentation, for fun and profit, by [appledoc](http://gentlebytes.com/appledoc/).
-
-### Internals
-
-- [forking.md](forking.md): the forking guide tells you everything about GRMustache organization.
+Examples above are common use cases for MacOS and iOS applications. The library does [much more](../../../../GRMustache#documentation).
 
 [up](../../../../GRMustache), [next](templates.md)

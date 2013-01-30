@@ -7,12 +7,12 @@
 		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
-		<meta name="generator" content="appledoc 2.0.5 (build 789)" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
 	</head>
 	<body>
 		<header id="top_header">
 			<div id="library" class="hideInXcode">
-				<h1><a id="libraryTitle" href="../index.html">GRMustache </a></h1>
+				<h1><a id="libraryTitle" href="../index.html">GRMustache 6.3 </a></h1>
 				<a id="developerHome" href="../index.html">Gwendal Roué</a>
 			</div>
 			
@@ -40,6 +40,8 @@
 	
 	<option value="properties">Properties</option>
 	
+	<option value="//api/name/configuration">&nbsp;&nbsp;&nbsp;&nbsp;configuration</option>
+	
 	<option value="//api/name/dataSource">&nbsp;&nbsp;&nbsp;&nbsp;dataSource</option>
 	
 	
@@ -51,32 +53,26 @@
 	
 	<option value="//api/name/templateRepositoryWithBaseURL:">&nbsp;&nbsp;&nbsp;&nbsp;+ templateRepositoryWithBaseURL:</option>
 	
-	<option value="//api/name/templateRepositoryWithBaseURL:templateExtension:">&nbsp;&nbsp;&nbsp;&nbsp;+ templateRepositoryWithBaseURL:templateExtension:</option>
-	
 	<option value="//api/name/templateRepositoryWithBaseURL:templateExtension:encoding:">&nbsp;&nbsp;&nbsp;&nbsp;+ templateRepositoryWithBaseURL:templateExtension:encoding:</option>
 	
 	<option value="//api/name/templateRepositoryWithBundle:">&nbsp;&nbsp;&nbsp;&nbsp;+ templateRepositoryWithBundle:</option>
 	
-	<option value="//api/name/templateRepositoryWithBundle:templateExtension:">&nbsp;&nbsp;&nbsp;&nbsp;+ templateRepositoryWithBundle:templateExtension:</option>
-	
 	<option value="//api/name/templateRepositoryWithBundle:templateExtension:encoding:">&nbsp;&nbsp;&nbsp;&nbsp;+ templateRepositoryWithBundle:templateExtension:encoding:</option>
+	
+	<option value="//api/name/templateRepositoryWithDictionary:">&nbsp;&nbsp;&nbsp;&nbsp;+ templateRepositoryWithDictionary:</option>
 	
 	<option value="//api/name/templateRepositoryWithDirectory:">&nbsp;&nbsp;&nbsp;&nbsp;+ templateRepositoryWithDirectory:</option>
 	
-	<option value="//api/name/templateRepositoryWithDirectory:templateExtension:">&nbsp;&nbsp;&nbsp;&nbsp;+ templateRepositoryWithDirectory:templateExtension:</option>
-	
 	<option value="//api/name/templateRepositoryWithDirectory:templateExtension:encoding:">&nbsp;&nbsp;&nbsp;&nbsp;+ templateRepositoryWithDirectory:templateExtension:encoding:</option>
-	
-	<option value="//api/name/templateRepositoryWithPartialsDictionary:">&nbsp;&nbsp;&nbsp;&nbsp;+ templateRepositoryWithPartialsDictionary:</option>
 	
 	
 	
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/templateForName:error:">&nbsp;&nbsp;&nbsp;&nbsp;- templateForName:error:</option>
-	
 	<option value="//api/name/templateFromString:error:">&nbsp;&nbsp;&nbsp;&nbsp;- templateFromString:error:</option>
+	
+	<option value="//api/name/templateNamed:error:">&nbsp;&nbsp;&nbsp;&nbsp;- templateNamed:error:</option>
 	
 	
 	
@@ -102,6 +98,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Building Repositories using a custom Data Source">Building Repositories using a custom Data Source</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Configuring Repositories">Configuring Repositories</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Getting Templates out of a Repository">Getting Templates out of a Repository</a></span></li>
 	
 </ul></li>
@@ -111,6 +109,8 @@
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/configuration">configuration</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dataSource">dataSource</a></span></li>
 	
@@ -124,23 +124,17 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/templateRepositoryWithBaseURL:">templateRepositoryWithBaseURL:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/templateRepositoryWithBaseURL:templateExtension:">templateRepositoryWithBaseURL:templateExtension:</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/templateRepositoryWithBaseURL:templateExtension:encoding:">templateRepositoryWithBaseURL:templateExtension:encoding:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/templateRepositoryWithBundle:">templateRepositoryWithBundle:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/templateRepositoryWithBundle:templateExtension:">templateRepositoryWithBundle:templateExtension:</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/templateRepositoryWithBundle:templateExtension:encoding:">templateRepositoryWithBundle:templateExtension:encoding:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/templateRepositoryWithDictionary:">templateRepositoryWithDictionary:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/templateRepositoryWithDirectory:">templateRepositoryWithDirectory:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/templateRepositoryWithDirectory:templateExtension:">templateRepositoryWithDirectory:templateExtension:</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/templateRepositoryWithDirectory:templateExtension:encoding:">templateRepositoryWithDirectory:templateExtension:encoding:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/templateRepositoryWithPartialsDictionary:">templateRepositoryWithPartialsDictionary:</a></span></li>
 	
 </ul></li>
 
@@ -148,9 +142,9 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/templateForName:error:">templateForName:error:</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/templateFromString:error:">templateFromString:error:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/templateNamed:error:">templateNamed:error:</a></span></li>
 	
 </ul></li>
 
@@ -224,15 +218,6 @@ base URL.</p></span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/templateRepositoryWithBaseURL:templateExtension:">+&nbsp;templateRepositoryWithBaseURL:templateExtension:</a></code>
-		<span class="tooltip"><p>Returns a GRMustacheTemplateRepository that loads Mustache template strings
-from files of provided extension, encoded in UTF8, stored in the provided
-base URL.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
 		<code><a href="#//api/name/templateRepositoryWithBaseURL:templateExtension:encoding:">+&nbsp;templateRepositoryWithBaseURL:templateExtension:encoding:</a></code>
 		<span class="tooltip"><p>Returns a GRMustacheTemplateRepository that loads Mustache template strings
 from files of provided extension, encoded in the provided encoding, stored in
@@ -245,15 +230,6 @@ the provided base URL.</p></span>
 		<code><a href="#//api/name/templateRepositoryWithDirectory:">+&nbsp;templateRepositoryWithDirectory:</a></code>
 		<span class="tooltip"><p>Returns a GRMustacheTemplateRepository that loads Mustache template strings
 from files of extension .mustache, encoded in UTF8, stored in the provided
-directory.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/templateRepositoryWithDirectory:templateExtension:">+&nbsp;templateRepositoryWithDirectory:templateExtension:</a></code>
-		<span class="tooltip"><p>Returns a GRMustacheTemplateRepository that loads Mustache template strings
-from files of provided extension, encoded in UTF8, stored in the provided
 directory.</p></span>
 	</span>
 	
@@ -286,15 +262,6 @@ provided bundle.</p></span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/templateRepositoryWithBundle:templateExtension:">+&nbsp;templateRepositoryWithBundle:templateExtension:</a></code>
-		<span class="tooltip"><p>Returns a GRMustacheTemplateRepository that loads Mustache template strings
-from resources of provided extension, encoded in UTF8, stored in the provided
-bundle.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
 		<code><a href="#//api/name/templateRepositoryWithBundle:templateExtension:encoding:">+&nbsp;templateRepositoryWithBundle:templateExtension:encoding:</a></code>
 		<span class="tooltip"><p>Returns a GRMustacheTemplateRepository that loads Mustache template strings
 from resources of provided extension, encoded in the provided encoding,
@@ -312,7 +279,7 @@ stored in the provided bundle.</p></span>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/templateRepositoryWithPartialsDictionary:">+&nbsp;templateRepositoryWithPartialsDictionary:</a></code>
+		<code><a href="#//api/name/templateRepositoryWithDictionary:">+&nbsp;templateRepositoryWithDictionary:</a></code>
 		<span class="tooltip"><p>Returns a GRMustacheTemplateRepository that loads Mustache template strings
 from a dictionary whose keys are template names, and values template strings.</p></span>
 	</span>
@@ -344,13 +311,28 @@ from a dictionary whose keys are template names, and values template strings.</p
 						</ul>
 						
 						
+						<a title="Configuring Repositories" name="task_Configuring Repositories"></a>
+						<h3 class="subsubtitle task-title">Configuring Repositories</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+		<span class="tooltip"><p>The configuration for all templates and partials built by the repository.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
 						<a title="Getting Templates out of a Repository" name="task_Getting Templates out of a Repository"></a>
 						<h3 class="subsubtitle task-title">Getting Templates out of a Repository</h3>
 
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/templateForName:error:">&ndash;&nbsp;templateForName:error:</a></code>
+		<code><a href="#//api/name/templateNamed:error:">&ndash;&nbsp;templateNamed:error:</a></code>
 		<span class="tooltip"><p>Returns a template identified by its name.</p></span>
 	</span>
 	
@@ -376,6 +358,77 @@ from a dictionary whose keys are template names, and values template strings.</p
 						<h2 class="subtitle subtitle-methods">Properties</h2>
 						
 						<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="subsubtitle method-title">configuration</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The configuration for all templates and partials built by the repository.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) GRMustacheConfiguration *configuration</code></div>
+
+    
+	
+	
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>v6.2</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>It is initialized to a copy of <a href="../Classes/GRMustacheConfiguration.html#//api/name/defaultConfiguration">[GRMustacheConfiguration defaultConfiguration]</a>.</p>
+
+<p>You can alter the repository&rsquo;s configuration:</p>
+
+<p>// All templates loaded from <em>repo</em> will render text,
+// and will not HTML-escape their input.
+GRMustacheTemplateRepository *repo = [GRMustacheTemplateRepository templateRepositoryWithBundle:nil];
+repo.configuration.contentType = GRMustacheContentTypeText;</p>
+
+<p>You can also create a new configuration, and assign it to the template:</p>
+
+<p>// Create a configuration
+<a href="../Classes/GRMustacheConfiguration.html">GRMustacheConfiguration</a> *configuration = <a href="../Classes/GRMustacheConfiguration.html#//api/name/configuration">[GRMustacheConfiguration configuration]</a>;
+configuration&hellip;. // setup</p>
+
+<p>GRMustacheTemplateRepository *repo = [GRMustacheTemplateRepository templateRepositoryWithBundle:nil];
+repo.configuration = configuration;</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="../Classes/GRMustacheConfiguration.html">GRMustacheConfiguration</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GRMustacheTemplateRepository.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/dataSource" title="dataSource"></a>
 	<h3 class="subsubtitle method-title">dataSource</h3>
 	
@@ -387,7 +440,7 @@ from a dictionary whose keys are template names, and values template strings.</p
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) id&lt;&gt; dataSource</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) id&lt;GRMustacheTemplateRepositoryDataSource&gt; dataSource</code></div>
 
     
 	
@@ -470,33 +523,30 @@ from a dictionary whose keys are template names, and values template strings.</p
 		<p>Until it is provided with a data source, it is unable to load template by
 names, and unable to process partial tags such as <code>{{&gt;partial}}</code>:</p>
 
-<pre><code>GRMustacheTemplateRepository *repository = [GRMustacheTemplateRepository templateRepository];
-NSError *error;
+<p>GRMustacheTemplateRepository <em>repository = <a href="#//api/name/templateRepository">[GRMustacheTemplateRepository templateRepository]</a>;
+NSError </em>error;</p>
 
-// Returns nil, and sets error to an NSError of domain
+<p>// Returns nil, and sets error to an NSError of domain
 // GRMustacheErrorDomain, code GRMustacheErrorCodeTemplateNotFound.
-[repository templateForName:@"foo" error:&amp;error];
+[repository templateNamed:@&ldquo;foo&rdquo; error:&amp;error];</p>
 
-// Returns nil, and sets error to an NSError of domain GRMustacheErrorDomain,
+<p>// Returns nil, and sets error to an NSError of domain GRMustacheErrorDomain,
 // code GRMustacheErrorCodeTemplateNotFound.
-[repository templateFromString:@"{{&gt;partial}}" error:&amp;error];
-</code></pre>
+[repository templateFromString:@&ldquo;{{>partial}}&rdquo; error:&amp;error];</p>
 
 <p>It is, however, able to process Mustache template strings without any
 partial:</p>
 
-<pre><code>GRMustacheTemplate *template = [repository templateFromString:@"Hello {{name}}!" error:NULL];
-</code></pre>
+<p><a href="../Classes/GRMustacheTemplate.html">GRMustacheTemplate</a> *template = [repository templateFromString:@&ldquo;Hello {{name}}!&rdquo; error:NULL];</p>
 
 <p>You will give it a data source conforming to the
 <a href="../Protocols/GRMustacheTemplateRepositoryDataSource.html">GRMustacheTemplateRepositoryDataSource</a> protocol in order to load template and
 partials by name:</p>
 
-<pre><code>repository.dataSource = ...;
+<p>repository.<a href="#//api/name/dataSource">dataSource</a> = &hellip;;</p>
 
-// Returns a template built from the string provided by the dataSource.
-[repository templateForName:@"foo" error:NULL];
-</code></pre>
+<p>// Returns a template built from the string provided by the <a href="#//api/name/dataSource">dataSource</a>.
+[repository templateNamed:@&ldquo;foo&rdquo; error:NULL];</p>
 	</div>
 	
 	
@@ -570,14 +620,13 @@ base URL.</p>
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>For instance:</p>
 
-<pre><code>// Creates a repository for templates stored in /path/to/templates
-NSURL *baseURL = [NSURL fileURLWithPath:@"/path/to/templates"];
-GRMustacheTemplateRepository *repository = [GRMustacheTemplateRepository templateRepositoryWithBaseURL:baseURL];
+<p>// Creates a repository for templates stored in /path/to/templates
+NSURL <em>baseURL = [NSURL fileURLWithPath:@&ldquo;/path/to/templates&rdquo;];
+GRMustacheTemplateRepository </em>repository = [GRMustacheTemplateRepository templateRepositoryWithBaseURL:baseURL];</p>
 
-// Returns a template for the file stored in
+<p>// Returns a template for the file stored in
 // /path/to/templates/profile.mustache
-GRMustacheTemplate *template = [repository templateForName:@"profile" error:NULL];
-</code></pre>
+<a href="../Classes/GRMustacheTemplate.html">GRMustacheTemplate</a> *template = [repository templateNamed:@&ldquo;profile&rdquo; error:NULL];</p>
 
 <p>A partial tag <code>{{&gt;partial}}</code> loads a partial template stored in a file named
 <code>partial.mustache</code>, located in the enclosing template&rsquo;s directory.</p>
@@ -590,105 +639,9 @@ hierarchical system: <code>{{&gt;partials/achievements}}</code> would load
 <p>When you ask the repository to parse a raw template string, partials are
 loaded from the base URL:</p>
 
-<pre><code>// The partial would be loaded from
+<p>// The partial would be loaded from
 // /path/to/templates/partials/achievements.mustache
-GRMustacheTemplate *template = [repository templateFromString:@"{{&gt;partials/achievements}}" error:NULL];
-</code></pre>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GRMustacheTemplateRepository.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/templateRepositoryWithBaseURL:templateExtension:" title="templateRepositoryWithBaseURL:templateExtension:"></a>
-	<h3 class="subsubtitle method-title">templateRepositoryWithBaseURL:templateExtension:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Returns a GRMustacheTemplateRepository that loads Mustache template strings
-from files of provided extension, encoded in UTF8, stored in the provided
-base URL.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>+ (id)templateRepositoryWithBaseURL:(NSURL *)<em>URL</em> templateExtension:(NSString *)<em>ext</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>URL</em></dt>
-			<dd><p>The base URL where to look templates from.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>ext</em></dt>
-			<dd><p>The extension of template files.</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>a GRMustacheTemplateRepository</p>
-	</div>
-	
-	
-	
-	<div class="method-subsection availability">
-		<h4 class="method-subtitle parameter-title">Availability</h4>
-		<p>v1.13</p>
-	</div>
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>For instance:</p>
-
-<pre><code>// Creates a repository for templates of extension `.txt` stored in
-// /path/to/templates
-NSURL *baseURL = [NSURL fileURLWithPath:@"/path/to/templates"];
-GRMustacheTemplateRepository *repository = [GRMustacheTemplateRepository templateRepositoryWithBaseURL:baseURL
-                                                                                     templateExtension:@"txt"];
-
-// Returns a template for the file stored in
-// /path/to/templates/profile.txt
-GRMustacheTemplate *template = [repository templateForName:@"profile" error:NULL];
-</code></pre>
-
-<p>A partial tag <code>{{&gt;partial}}</code> loads a partial template stored in a file named
-<code>partial.txt</code>, located in the enclosing template&rsquo;s directory.</p>
-
-<p>You may use the slash <code>/</code>, and <code>..</code>, in order to navigate the URL
-hierarchical system: <code>{{&gt;partials/achievements}}</code> would load
-/path/to/templates/partials/achievements.txt, if invoked from
-/path/to/templates/profile.txt.</p>
-
-<p>When you ask the repository to parse a raw template string, partials are
-loaded from the base URL:</p>
-
-<pre><code>// The partial would be loaded from
-// /path/to/templates/partials/achievements.txt
-GRMustacheTemplate *template = [repository templateFromString:@"{{&gt;partials/achievements}}" error:NULL];
-</code></pre>
+<a href="../Classes/GRMustacheTemplate.html">GRMustacheTemplate</a> *template = [repository templateFromString:@&ldquo;{{>partials/achievements}}&rdquo; error:NULL];</p>
 	</div>
 	
 	
@@ -763,17 +716,16 @@ the provided base URL.</p>
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>For instance:</p>
 
-<pre><code>// Creates a repository for templates of extension `.txt` stored in
+<p>// Creates a repository for templates of extension <code>.txt</code> stored in
 // /path/to/templates, encoded with NSMacOSRomanStringEncoding:
-NSURL *baseURL = [NSURL fileURLWithPath:@"/path/to/templates"];
-GRMustacheTemplateRepository *repository = [GRMustacheTemplateRepository templateRepositoryWithBaseURL:baseURL
-                                                                                     templateExtension:@"txt"
-                                                                                              encoding:NSMacOSRomanStringEncoding];
+NSURL <em>baseURL = [NSURL fileURLWithPath:@&ldquo;/path/to/templates&rdquo;];
+GRMustacheTemplateRepository </em>repository = [GRMustacheTemplateRepository templateRepositoryWithBaseURL:baseURL
+templateExtension:@&ldquo;txt&rdquo;
+encoding:NSMacOSRomanStringEncoding];</p>
 
-// Returns a template for the file stored in
+<p>// Returns a template for the file stored in
 // /path/to/templates/profile.txt
-GRMustacheTemplate *template = [repository templateForName:@"profile" error:NULL];
-</code></pre>
+<a href="../Classes/GRMustacheTemplate.html">GRMustacheTemplate</a> *template = [repository templateNamed:@&ldquo;profile&rdquo; error:NULL];</p>
 
 <p>A partial tag <code>{{&gt;partial}}</code> loads a partial template stored in a file named
 <code>partial.txt</code>, located in the enclosing template&rsquo;s directory.</p>
@@ -786,10 +738,9 @@ hierarchical system: <code>{{&gt;partials/achievements}}</code> would load
 <p>When you ask the repository to parse a raw template string, partials are
 loaded from the base URL:</p>
 
-<pre><code>// The partial would be loaded from
+<p>// The partial would be loaded from
 // /path/to/templates/partials/achievements.txt
-GRMustacheTemplate *template = [repository templateFromString:@"{{&gt;partials/achievements}}" error:NULL];
-</code></pre>
+<a href="../Classes/GRMustacheTemplate.html">GRMustacheTemplate</a> *template = [repository templateFromString:@&ldquo;{{>partials/achievements}}&rdquo; error:NULL];</p>
 	</div>
 	
 	
@@ -854,101 +805,17 @@ provided bundle.</p>
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>For instance:</p>
 
-<pre><code>// Creates a repository for templates stored in the main bundle:
-GRMustacheTemplateRepository *repository = [GRMustacheTemplateRepository templateRepositoryWithBundle:[NSBundle mainBundle]];
+<p>// Creates a repository for templates stored in the main bundle:
+GRMustacheTemplateRepository *repository = [GRMustacheTemplateRepository templateRepositoryWithBundle:[NSBundle mainBundle]];</p>
 
-// Returns a template for the resource profile.mustache
-GRMustacheTemplate *template = [repository templateForName:@"profile" error:NULL];
-</code></pre>
+<p>// Returns a template for the resource profile.mustache
+<a href="../Classes/GRMustacheTemplate.html">GRMustacheTemplate</a> *template = [repository templateNamed:@&ldquo;profile&rdquo; error:NULL];</p>
 
 <p>You may provide nil for the bundle parameter: the repository will use the
 main bundle.</p>
 
 <p>A partial tag <code>{{&gt;partial}}</code> loads a partial template from the
 <code>partial.mustache</code> resource in the bundle.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GRMustacheTemplateRepository.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/templateRepositoryWithBundle:templateExtension:" title="templateRepositoryWithBundle:templateExtension:"></a>
-	<h3 class="subsubtitle method-title">templateRepositoryWithBundle:templateExtension:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Returns a GRMustacheTemplateRepository that loads Mustache template strings
-from resources of provided extension, encoded in UTF8, stored in the provided
-bundle.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>+ (id)templateRepositoryWithBundle:(NSBundle *)<em>bundle</em> templateExtension:(NSString *)<em>ext</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>bundle</em></dt>
-			<dd><p>The bundle that stores templates as resources.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>ext</em></dt>
-			<dd><p>The extension of template files.</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>a GRMustacheTemplateRepository</p>
-	</div>
-	
-	
-	
-	<div class="method-subsection availability">
-		<h4 class="method-subtitle parameter-title">Availability</h4>
-		<p>v1.13</p>
-	</div>
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>For instance:</p>
-
-<pre><code>// Creates a repository for templates of extension `.txt` stored in the
-// main bundle:
-GRMustacheTemplateRepository *repository = [GRMustacheTemplateRepository templateRepositoryWithBundle:[NSBundle mainBundle]
-                                                                                    templateExtension:@"txt"];
-
-// Returns a template for the resource profile.txt
-GRMustacheTemplate *template = [repository templateForName:@"profile" error:NULL];
-</code></pre>
-
-<p>You may provide nil for the bundle parameter: the repository will use the
-main bundle.</p>
-
-<p>A partial tag <code>{{&gt;partial}}</code> loads a partial template from the <code>partial.txt</code>
-resource in the bundle.</p>
 	</div>
 	
 	
@@ -1023,21 +890,90 @@ stored in the provided bundle.</p>
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>For instance:</p>
 
-<pre><code>// Creates a repository for templates of extension `.txt` stored in the
+<p>// Creates a repository for templates of extension <code>.txt</code> stored in the
 // main bundle, encoded with NSMacOSRomanStringEncoding:
 GRMustacheTemplateRepository *repository = [GRMustacheTemplateRepository templateRepositoryWithBundle:[NSBundle mainBundle]
-                                                                                    templateExtension:@"txt"
-                                                                                             encoding:NSMacOSRomanStringEncoding];
+templateExtension:@&ldquo;txt&rdquo;
+encoding:NSMacOSRomanStringEncoding];</p>
 
-// Returns a template for the resource profile.txt
-GRMustacheTemplate *template = [repository templateForName:@"profile" error:NULL];
-</code></pre>
+<p>// Returns a template for the resource profile.txt
+<a href="../Classes/GRMustacheTemplate.html">GRMustacheTemplate</a> *template = [repository templateNamed:@&ldquo;profile&rdquo; error:NULL];</p>
 
 <p>You may provide nil for the bundle parameter: the repository will use the
 main bundle.</p>
 
 <p>A partial tag <code>{{&gt;partial}}</code> loads a partial template from the <code>partial.txt</code>
 resource in the bundle.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GRMustacheTemplateRepository.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/templateRepositoryWithDictionary:" title="templateRepositoryWithDictionary:"></a>
+	<h3 class="subsubtitle method-title">templateRepositoryWithDictionary:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a GRMustacheTemplateRepository that loads Mustache template strings
+from a dictionary whose keys are template names, and values template strings.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (id)templateRepositoryWithDictionary:(NSDictionary *)<em>templates</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>templates</em></dt>
+			<dd><p>A dictionary whose keys are template names, and values
+Mustache template strings.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>a GRMustacheTemplateRepository</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>v1.13</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>For instance:</p>
+
+<p>NSDictionary <em>templates = [NSDictionary dictionaryWithObject:@&ldquo;It works.&rdquo; forKey:@&ldquo;partial&rdquo;];
+GRMustacheTemplateRepository </em>repository = [GRMustacheTemplateRepository templateRepositoryWithDictionary:templates];</p>
+
+<p>// Two templates that would render &ldquo;It works.&rdquo;
+<a href="../Classes/GRMustacheTemplate.html">GRMustacheTemplate</a> <em>template1 = [repository templateNamed:@&ldquo;partial&rdquo; error:NULL];
+<a href="../Classes/GRMustacheTemplate.html">GRMustacheTemplate</a> </em>template2 = [repository templateFromString:@&ldquo;{{>partial}}&rdquo; error:NULL];</p>
 	</div>
 	
 	
@@ -1102,13 +1038,12 @@ directory.</p>
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>For instance:</p>
 
-<pre><code>// Creates a repository for templates stored in /path/to/templates
-GRMustacheTemplateRepository *repository = [GRMustacheTemplateRepository templateRepositoryWithDirectory:@"/path/to/templates"];
+<p>// Creates a repository for templates stored in /path/to/templates
+GRMustacheTemplateRepository *repository = [GRMustacheTemplateRepository templateRepositoryWithDirectory:@&ldquo;/path/to/templates&rdquo;];</p>
 
-// Returns a template for the file stored in
+<p>// Returns a template for the file stored in
 // /path/to/templates/profile.mustache
-GRMustacheTemplate *template = [repository templateForName:@"profile" error:NULL];
-</code></pre>
+<a href="../Classes/GRMustacheTemplate.html">GRMustacheTemplate</a> *template = [repository templateNamed:@&ldquo;profile&rdquo; error:NULL];</p>
 
 <p>A partial tag <code>{{&gt;partial}}</code> loads a partial template stored in a file named
 <code>partial.mustache</code>, located in the enclosing template&rsquo;s directory.</p>
@@ -1121,104 +1056,9 @@ file system: <code>{{&gt;partials/achievements}}</code> would load
 <p>When you ask the repository to parse a raw template string, partials are
 loaded from the base directory:</p>
 
-<pre><code>// The partial would be loaded from
+<p>// The partial would be loaded from
 // /path/to/templates/partials/achievements.mustache
-GRMustacheTemplate *template = [repository templateFromString:@"{{&gt;partials/achievements}}" error:NULL];
-</code></pre>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GRMustacheTemplateRepository.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/templateRepositoryWithDirectory:templateExtension:" title="templateRepositoryWithDirectory:templateExtension:"></a>
-	<h3 class="subsubtitle method-title">templateRepositoryWithDirectory:templateExtension:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Returns a GRMustacheTemplateRepository that loads Mustache template strings
-from files of provided extension, encoded in UTF8, stored in the provided
-directory.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>+ (id)templateRepositoryWithDirectory:(NSString *)<em>path</em> templateExtension:(NSString *)<em>ext</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>path</em></dt>
-			<dd><p>The path of the directory that stores templates.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>ext</em></dt>
-			<dd><p>The extension of template files.</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>a GRMustacheTemplateRepository</p>
-	</div>
-	
-	
-	
-	<div class="method-subsection availability">
-		<h4 class="method-subtitle parameter-title">Availability</h4>
-		<p>v1.13</p>
-	</div>
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>For instance:</p>
-
-<pre><code>// Creates a repository for templates of extension `.txt` stored in
-// /path/to/templates
-GRMustacheTemplateRepository *repository = [GRMustacheTemplateRepository templateRepositoryWithDirectory:@"/path/to/templates"
-                                                                                       templateExtension:@"txt"];
-
-// Returns a template for the file stored in
-// /path/to/templates/profile.txt
-GRMustacheTemplate *template = [repository templateForName:@"profile" error:NULL];
-</code></pre>
-
-<p>A partial tag <code>{{&gt;partial}}</code> loads a partial template stored in a file named
-<code>partial.txt</code>, located in the enclosing template&rsquo;s directory.</p>
-
-<p>You may use the slash <code>/</code>, and <code>..</code>, in order to navigate the hierarchical
-file system: <code>{{&gt;partials/achievements}}</code> would load
-/path/to/templates/partials/achievements.txt, if invoked from
-/path/to/templates/profile.txt.</p>
-
-<p>When you ask the repository to parse a raw template string, partials are
-loaded from the base directory:</p>
-
-<pre><code>// The partial would be loaded from
-// /path/to/templates/partials/achievements.txt
-GRMustacheTemplate *template = [repository templateFromString:@"{{&gt;partials/achievements}}" error:NULL];
-</code></pre>
+<a href="../Classes/GRMustacheTemplate.html">GRMustacheTemplate</a> *template = [repository templateFromString:@&ldquo;{{>partials/achievements}}&rdquo; error:NULL];</p>
 	</div>
 	
 	
@@ -1293,16 +1133,15 @@ the provided directory.</p>
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>For instance:</p>
 
-<pre><code>// Creates a repository for templates of extension `.txt` stored in
+<p>// Creates a repository for templates of extension <code>.txt</code> stored in
 // /path/to/templates, encoded with NSMacOSRomanStringEncoding:
-GRMustacheTemplateRepository *repository = [GRMustacheTemplateRepository templateRepositoryWithDirectory:@"/path/to/templates"
-                                                                                       templateExtension:@"txt"
-                                                                                                encoding:NSMacOSRomanStringEncoding];
+GRMustacheTemplateRepository *repository = [GRMustacheTemplateRepository templateRepositoryWithDirectory:@&ldquo;/path/to/templates&rdquo;
+templateExtension:@&ldquo;txt&rdquo;
+encoding:NSMacOSRomanStringEncoding];</p>
 
-// Returns a template for the file stored in
+<p>// Returns a template for the file stored in
 // /path/to/templates/profile.txt
-GRMustacheTemplate *template = [repository templateForName:@"profile" error:NULL];
-</code></pre>
+<a href="../Classes/GRMustacheTemplate.html">GRMustacheTemplate</a> *template = [repository templateNamed:@&ldquo;profile&rdquo; error:NULL];</p>
 
 <p>A partial tag <code>{{&gt;partial}}</code> loads a partial template stored in a file named
 <code>partial.txt</code>, located in the enclosing template&rsquo;s directory.</p>
@@ -1315,83 +1154,9 @@ file system: <code>{{&gt;partials/achievements}}</code> would load
 <p>When you ask the repository to parse a raw template string, partials are
 loaded from the base directory:</p>
 
-<pre><code>// The partial would be loaded from
+<p>// The partial would be loaded from
 // /path/to/templates/partials/achievements.txt
-GRMustacheTemplate *template = [repository templateFromString:@"{{&gt;partials/achievements}}" error:NULL];
-</code></pre>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GRMustacheTemplateRepository.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/templateRepositoryWithPartialsDictionary:" title="templateRepositoryWithPartialsDictionary:"></a>
-	<h3 class="subsubtitle method-title">templateRepositoryWithPartialsDictionary:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Returns a GRMustacheTemplateRepository that loads Mustache template strings
-from a dictionary whose keys are template names, and values template strings.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>+ (id)templateRepositoryWithPartialsDictionary:(NSDictionary *)<em>partialsDictionary</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>partialsDictionary</em></dt>
-			<dd><p>A dictionary of whose keys are template names, and</p>
-
-<pre><code>                         values Mustache template strings.
-</code></pre></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>a GRMustacheTemplateRepository</p>
-	</div>
-	
-	
-	
-	<div class="method-subsection availability">
-		<h4 class="method-subtitle parameter-title">Availability</h4>
-		<p>v1.13</p>
-	</div>
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>For instance:</p>
-
-<pre><code>NSDictionary *partialsDictionary = [NSDictionary dictionaryWithObject:@"It works." forKey:@"partial"];
-GRMustacheTemplateRepository *repository = [GRMustacheTemplateRepository templateRepositoryWithPartialsDictionary:partialsDictionary];
-
-// Two templates that would render "It works."
-GRMustacheTemplate *template1 = [repository templateForName:@"partial" error:NULL];
-GRMustacheTemplate *template2 = [repository templateFromString:@"{{&gt;partial}}" error:NULL];
-</code></pre>
+<a href="../Classes/GRMustacheTemplate.html">GRMustacheTemplate</a> *template = [repository templateFromString:@&ldquo;{{>partials/achievements}}&rdquo; error:NULL];</p>
 	</div>
 	
 	
@@ -1417,78 +1182,6 @@ GRMustacheTemplate *template2 = [repository templateFromString:@"{{&gt;partial}}
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/templateForName:error:" title="templateForName:error:"></a>
-	<h3 class="subsubtitle method-title">templateForName:error:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Returns a template identified by its name.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (GRMustacheTemplate *)templateForName:(NSString *)<em>name</em> error:(NSError **)<em>outError</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>name</em></dt>
-			<dd><p>The template name</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>outError</em></dt>
-			<dd><p>If there is an error loading or parsing template and</p>
-
-<pre><code>             partials, upon return contains an NSError object that
-             describes the problem.
-</code></pre></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>a <a href="../Classes/GRMustacheTemplate.html">GRMustacheTemplate</a></p>
-	</div>
-	
-	
-	
-	<div class="method-subsection availability">
-		<h4 class="method-subtitle parameter-title">Availability</h4>
-		<p>v1.13</p>
-	</div>
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Depending on the way the repository has been created, the name identifies a
-URL, a file path, a key in a dictionary, or whatever is relevant to the
-repository&rsquo;s data source.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GRMustacheTemplateRepository.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
 	<a name="//api/name/templateFromString:error:" title="templateFromString:error:"></a>
 	<h3 class="subsubtitle method-title">templateFromString:error:</h3>
 	
@@ -1500,7 +1193,7 @@ repository&rsquo;s data source.</p>
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (GRMustacheTemplate *)templateFromString:(NSString *)<em>templateString</em> error:(NSError **)<em>outError</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (GRMustacheTemplate *)templateFromString:(NSString *)<em>templateString</em> error:(NSError **)<em>error</em></code></div>
 
     
 	
@@ -1513,12 +1206,10 @@ repository&rsquo;s data source.</p>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>outError</em></dt>
-			<dd><p>If there is an error loading or parsing template and</p>
-
-<pre><code>                   partials, upon return contains an NSError object that
-                   describes the problem.
-</code></pre></dd>
+			<dt><em>error</em></dt>
+			<dd><p>If there is an error loading or parsing template and
+partials, upon return contains an NSError object that
+describes the problem.</p></dd>
 		</dl>
 		
 	</div>
@@ -1560,6 +1251,76 @@ dictionary, or whatever is relevant to the repository&rsquo;s data source.</p>
 	
 </div>
 						
+						<div class="section-method">
+	<a name="//api/name/templateNamed:error:" title="templateNamed:error:"></a>
+	<h3 class="subsubtitle method-title">templateNamed:error:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a template identified by its name.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (GRMustacheTemplate *)templateNamed:(NSString *)<em>name</em> error:(NSError **)<em>error</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>name</em></dt>
+			<dd><p>The template name</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>If there is an error loading or parsing template and
+partials, upon return contains an NSError object that
+describes the problem.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>a <a href="../Classes/GRMustacheTemplate.html">GRMustacheTemplate</a></p>
+	</div>
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>v1.13</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Depending on the way the repository has been created, the name identifies a
+URL, a file path, a key in a dictionary, or whatever is relevant to the
+repository&rsquo;s data source.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GRMustacheTemplateRepository.h</code><br />
+	</div>				
+	
+	
+</div>
+						
 					</div>
 					
 					
@@ -1573,9 +1334,9 @@ dictionary, or whatever is relevant to the repository&rsquo;s data source.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2012 Gwendal Roué. All rights reserved. (Last updated: 2012-08-04)</span><br />
+						<p><span class="copyright">&copy; 2013 Gwendal Roué. All rights reserved. (Last updated: 2013-01-30)</span><br />
 						
-						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 789)</a>.</span></p>
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
 					</div>
 				</div>

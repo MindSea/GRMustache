@@ -1,6 +1,6 @@
 // The MIT License
 // 
-// Copyright (c) 2012 Gwendal Roué
+// Copyright (c) 2013 Gwendal Roué
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,9 +21,15 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import "GRMustacheAvailabilityMacros_private.h"
 
-@class GRMustacheContext;
-
+/**
+ * The GRMustacheFilterLibrary provides all built-in filters.
+ */
 @interface GRMustacheFilterLibrary : NSObject
-+ (GRMustacheContext *)filterContextWithFilters:(id)filters;
+
+/**
+ * Returns the shared filter library.
+ */
++ (id)filterLibrary GRMUSTACHE_API_INTERNAL;
 @end
