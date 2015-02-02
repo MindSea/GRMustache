@@ -1,30 +1,34 @@
-[up](../../../../GRMustache#documentation), [next](partials.md)
+[up](../../../../GRMustache#documentation), [next](runtime.md)
 
 Templates
 =========
 
-You'll learn here how to load, and render templates. The [Runtime Guide](runtime.md) talks about what happens *during* the rendering itself. Common patterns for feeding templates are described in the [Feeding Templates Guides](runtime_patterns.md).
+You'll learn here how to load, and render templates. The [Runtime Guide](runtime.md) talks about what happens *during* the rendering itself. Common patterns for feeding templates are described in the [ViewModel Guides](view_model.md).
+
+- [Errors](#errors)
+- [On-the-fly rendering methods](#on-the-fly-rendering-methods)
+- [Parse-once-and-render-many-times methods](#parse-once-and-render-many-times-methods)
+- [More loading options](#more-loading-options)
+
 
 Errors
 ------
 
 Not funny, but those happens.
 
-Once and for all: GRMustache methods may return errors, or throw exceptions:
-
 ```objc
 extern NSString * const GRMustacheRenderingException;
-
 extern NSString * const GRMustacheErrorDomain;
 
 typedef enum {
-    GRMustacheErrorCodeParseError,
-    GRMustacheErrorCodeTemplateNotFound,
-    GRMustacheErrorCodeRenderingError,
+    GRMustacheErrorCodeParseError,          // bad Mustache syntax
+    GRMustacheErrorCodeTemplateNotFound,    // missing template
+    GRMustacheErrorCodeRenderingError,      // bad food
 } GRMustacheErrorCode;
 ```
 
-Exceptions are thrown for programming error such as inconsistently rendering both HTML and text in a loop of [rendering objects](rendering_objects.md).
+GRMustache usually returns regular NSError objects of domain `GRMustacheErrorDomain`. Exceptions are only thrown for rare programming errors such as inconsistently rendering both HTML and text in a loop of [rendering objects](rendering_objects.md).
+
 
 On-the-fly rendering methods
 ----------------------------
@@ -103,4 +107,4 @@ More loading options
 
 All methods above cover the most common use cases. If you have more needs, check the [Template Repositories Guide](template_repositories.md).
 
-[up](../../../../GRMustache#documentation), [next](partials.md)
+[up](../../../../GRMustache#documentation), [next](runtime.md)
